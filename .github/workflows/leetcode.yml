@@ -1,20 +1,26 @@
 name: Sync LeetCode Solutions
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 2 * * *"
-  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Sync LeetCode
         uses: joshcai/leetcode-sync@master
-
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          username: ${{ secrets.LEETCODE_USERNAME }}
+          destination-folder: leetcode
+          verbose: true
+
