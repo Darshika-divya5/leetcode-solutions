@@ -13,4 +13,4 @@ I use it to keep my practice work organised and track my progress in Data Struct
 ## LeetCode Profile
 🔗 https://leetcode.com/DivyaDarshika/
 
-![LeetCode Stats](https://leetcard.jacoblin.cool/DivyaDarshika
+![LeetCode Stats](https://leetcard.jacoblin.cool/DivyaDarshika)
