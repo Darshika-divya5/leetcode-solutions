@@ -4,17 +4,29 @@
 ![GitHub Actions](https://img.shields.io/badge/Automation-GitHub%20Actions-success)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-# LeetCode Solutions
-This repository contains my accepted solutions to LeetCode problems.
-I use it to keep my practice work organised and track my progress in Data Structures and Algorithms.
+# LeetCode Solutions | DSA with Java
+A curated collection of my accepted LeetCode solutions, focused on mastering Data Structures and Algorithms using Java.
+This repository reflects my consistent problem-solving practice, logical thinking, and commitment to writing clean, efficient code.
 
-# How this repository is updated
-- Solutions are synced from my LeetCode account using a GitHub Actions workflow
-- Updates happen automatically after submissions
-- This helps me maintain consistency and version history
+# About This Repository
+- Contains well-structured and accepted solutions to LeetCode problems
+- Focused on building strong DSA fundamentals for technical interviews
+- Emphasizes optimized logic, readability, and best coding practices
+- Acts as a personal progress tracker for continuous improvement
 
-# Languages Used 
-- Java
+# How This Repository Is Maintained
+- Solutions are automatically synced from my LeetCode account
+- Uses GitHub Actions for seamless updates after each submission
+- Ensures version control, consistency, and organized history
+- Eliminates manual uploads, keeping the workflow efficient
+
+# Technologies & Concepts Used
+Programming Language: Java
+Core Concepts:
+  - Data Structures (Arrays, Strings, HashMaps, Stacks, Queues, etc.)
+  - Algorithms (Searching, Sorting, Recursion, Two Pointers, Sliding Window, etc.)
+  - Time & Space Complexity Optimization
+  - Problem-solving and logical reasoning
 
 ## LeetCode Profile
 🔗 https://leetcode.com/DivyaDarshika/
