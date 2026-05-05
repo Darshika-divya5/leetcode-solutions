@@ -5,21 +5,50 @@ on:
   schedule:
     - cron: "0 */6 * * *"
 
-permissions:
-  contents: write
-
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Sync LeetCode submissions
-        uses: ashutosh1906/leetcode-sync@v1.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          csrf-token: ${{ secrets.CSRF_TOKEN }}
-          destination-folder: leetcode
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch LeetCode submissions
+        env:
+          LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+        run: |
+          python <<EOF
+          import requests
+          import os
+
+          session = os.environ.get("LEETCODE_SESSION")
+
+          url = "https://leetcode.com/api/submissions/"
+          cookies = {"LEETCODE_SESSION": session}
+
+          res = requests.get(url, cookies=cookies)
+
+          if res.status_code != 200:
+              print("Failed to fetch data")
+              exit(1)
+
+          data = res.json()
+
+          os.makedirs("leetcode", exist_ok=True)
+
+          with open("leetcode/submissions.json", "w") as f:
+              f.write(str(data))
+
+          print("Saved submissions")
+          EOF
+
+      - name: Commit & push
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "Update LeetCode submissions" || echo "No changes"
+          git push
