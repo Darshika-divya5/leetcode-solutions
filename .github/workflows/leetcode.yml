@@ -3,7 +3,7 @@ name: Sync LeetCode Solutions
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
@@ -16,11 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Sync LeetCode
-        uses: joshcai/leetcode-sync@master
+      - name: Sync LeetCode submissions
+        uses: leetcode-tools/leetcode-to-github@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          destination-folder: leetcode
-          verbose: true
+          csrf-token: ${{ secrets.CSRF_TOKEN }}
+          output-dir: leetcode
 
