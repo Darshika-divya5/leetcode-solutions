@@ -17,10 +17,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Sync LeetCode submissions
-        uses: leetcode-tools/leetcode-to-github@main
+        uses: ashutosh1906/leetcode-sync@v1.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           csrf-token: ${{ secrets.CSRF_TOKEN }}
-          output-dir: leetcode
-
+          destination-folder: leetcode
